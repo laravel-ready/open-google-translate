@@ -1,0 +1,69 @@
+{
+  "name": "laravel-ready/open-google-translate",
+  "description": "Simple Google Translate API implementation without key",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "laravel",
+    " translate",
+    " google-translate"
+  ],
+  "authors": [
+    {
+      "name": "Egoist",
+      "email": "epsilonelittr@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/laravel-ready/open-google-translate/issues",
+    "source": "https://github.com/laravel-ready/open-google-translate"
+  },
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^9.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.4",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/extension-installer": "^1.1",
+    "nunomaduro/larastan": "^2.1",
+    "pestphp/pest": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaravelReady\\OpenGoogleTranslate\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "lint": "php-cs-fixer fix -v",
+    "test:coverage": "@test --coverage-php ./coverage/cov/default.cov",
+    "test:coverage:html": "@test --coverage-html coverage/html/default",
+    "test": "vendor/bin/pest --colors=always --parallel",
+    "test:lint": "php-cs-fixer fix -v --dry-run"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LaravelReady\\OpenGoogleTranslate\\ServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
