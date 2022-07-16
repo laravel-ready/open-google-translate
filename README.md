@@ -9,8 +9,17 @@
 
 ## 📂 About
 
-Simple Google Translate API implementation without key...
+Simple Google Translate API implementation without an API key. This package provides only one method: translate() and a simple translation interface over `https://translate.googleapis.com/translate_a/single?` endpoint. This is an open API. This package is not using the cloud API version.
 
+## 📜 Usage
+
+```php
+use LaravelReady\OpenGoogleTranslate\Translator;
+
+$response = Translator::translate('When was the last time you used google translate?', 'en', 'tr');
+```
+
+See all available [languages](https://cloud.google.com/translate/docs/languages);
 
 ## 📦 Installation
 
