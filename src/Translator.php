@@ -29,6 +29,10 @@ class Translator
             return Cache::get($cahceKey);
         }
 
+        if (Config::get('open-google-translate.sleep_seconds') > 0) {
+            sleep(Config::get('open-google-translate.sleep_seconds', 0));
+        }
+
         $text = urlencode($text);
         $sourceLang = strtolower($sourceLang);
         $translateLang = strtolower($translateLang);
