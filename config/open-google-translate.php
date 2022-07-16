@@ -23,6 +23,7 @@ return [
      * So we may need to sleep for a while to avoid exceeding the limit.
      * 
      * When you set this value to 0, no sleep will be done.
+     * Also you need consider the timeout case, you set this value "max_execution_time" in php.ini.
      * 
      * Default: 0
      */
