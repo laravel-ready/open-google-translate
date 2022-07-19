@@ -25,8 +25,9 @@ See all available [languages](https://cloud.google.com/translate/docs/languages)
 
 Get via composer
 
-`composer require laravel-ready/open-google-translate`
-
+```bash
+composer require laravel-ready/open-google-translate
+```
 
 ## ⚙️ Configs
 
