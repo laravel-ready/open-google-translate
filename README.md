@@ -13,7 +13,7 @@ Simple Google Translate API implementation without an API key. This package prov
 
 ## 🚀 Demo
 
-You can see a demo of the [Google Translate Clone](https://tailwindcomponents.com/component/google-translate-clone-template/landing)
+You can see [Google Translate Clone](https://egoistdeveloper.github.io/my-tailwind-components/src/clones/google-translate.html) as a demo. 
 
 ## 📜 Usage
 
