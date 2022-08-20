@@ -11,6 +11,10 @@
 
 Simple Google Translate API implementation without an API key. This package provides only one method: translate() and a simple translation interface over `https://translate.googleapis.com/translate_a/single?` endpoint. This is an open API. This package is not using the cloud API version.
 
+## 🚀 Demo
+
+You can see a demo of this package in the [Google Translate Clone](https://tailwindcomponents.com/component/google-translate-clone-template/landing)
+
 ## 📜 Usage
 
 ```php
