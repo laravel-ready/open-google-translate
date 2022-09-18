@@ -24,6 +24,7 @@ class Translator
         $contentHash = hash('md5', $text);
         $cahceKey = "open:translate:keyword:{$contentHash}:{$sourceLang}:{$translateLang}";
         $isCachingenabled = Config::get('open-google-translate.use_cache', true);
+        $finalTranslation = null;
 
         if ($isCachingenabled === true && Cache::has($cahceKey)) {
             return Cache::get($cahceKey);
@@ -50,17 +51,26 @@ class Translator
         if ($response->successful()) {
             $response = $response->json();
 
-            if (isset($response[0][0][0]) && !empty($response[0][0][0])) {
-                if ($isCachingenabled === true) {
-                    Cache::put($cahceKey, $response[0][0][0], Date::now()->addMinutes(
-                        Config::get('open-google-translate.cache_minutes', 60 * 24 * 7)
-                    ));
-                }
+            // probably there is a valid result
+            if (isset($response[0])) {
+                $result = $response[0];
 
-                return $response[0][0][0];
+                // if there is more than one sentence, we will take each one and join them
+                if (is_array($result) && count($result) > 0) {
+                    $finalTranslation = collect($result)
+                        ->map(fn ($result) => $result[0] ?? null)
+                        ->filter(fn ($result) => $result !== null)
+                        ->join('');
+                }
+            }
+
+            if (!empty($finalTranslation) && $isCachingenabled === true) {
+                Cache::put($cahceKey, $finalTranslation, Date::now()->addMinutes(
+                    Config::get('open-google-translate.cache_minutes', 60 * 24 * 7)
+                ));
             }
         }
 
-        return null;
+        return $finalTranslation;
     }
 }

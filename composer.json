@@ -3,7 +3,6 @@
   "description": "Simple Google Translate API implementation without key",
   "type": "library",
   "license": "MIT",
-  "version": "1.1.0",
   "keywords": [
     "laravel",
     " translate",
